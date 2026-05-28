@@ -11,15 +11,12 @@ echo "export LIBGL_ALWAYS_SOFTWARE=1" >> /etc/profile.d/userland.sh
 chmod +x /etc/profile.d/userland.sh
 
 #update our repos so we can install some packages
-echo "deb http://deb.debian.org/debian/ buster main contrib non-free" > /etc/apt/sources.list
-echo "#deb-src http://deb.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian/ buster-updates main contrib non-free" >> /etc/apt/sources.list
-echo "#deb-src http://deb.debian.org/debian/ buster-updates main contrib non-free" >> /etc/apt/sources.list
 apt-get update
 
 #install some packages with need for UserLAnd
-apt-get install -y --no-install-recommends sudo dropbear libgl1-mesa-glx tightvncserver xterm xfonts-base twm openbox expect
-DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install octave less octave-control octave-financial octave-io octave-missing-functions octave-optim octave-signal octave-specfun octave-statistics octave-symbolic octave-image gnuplot-x11 pstoedit fonts-freefont-otf qt5-default qt5-assistant
+apt-get install -y --no-install-recommends sudo dropbear libgl1 libglx-mesa0 tightvncserver xterm xfonts-base twm openbox expect wget curl
+DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install octave less octave-control octave-financial octave-io octave-missing-functions octave-optim octave-signal octave-statistics octave-symbolic octave-image gnuplot-x11 pstoedit fonts-freefont-otf qt5-default qt5-assistant
+apt-get install -y pulseaudio
 
 #clean up after ourselves
 apt-get clean
